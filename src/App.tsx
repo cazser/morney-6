@@ -9,6 +9,8 @@ Switch,
   Link,
 Redirect }
 from 'react-router-dom'
+import Nav from './components/Nav.jsx'
+
 const Wrapper = styled.div
 `
 height: 100vh;
@@ -20,18 +22,7 @@ const Main = styled.div
 `flex-grow:1;
 overflow:auto;
 `
-const Nav = styled.nav
-`
-border: 1px solid blue;
->ul{
-  display: flex;
-  >li{
-    width: 33.3%;
-    text-align: center;
-    padding: 16px;
-}
-}
-`
+
 function Tags(){
   return(
     <div>标签页</div>
@@ -76,20 +67,7 @@ function App() {
           </Route>
       </Switch>
       </Main>
-      <Nav>
-        <ul>
-          <li>
-            <Link to="/tags">标签页</Link>
-          </li>
-          <li>
-            <Link to="/money">记账页</Link>
-          </li>
-          <li>
-            <Link to="/statistics">统计页</Link>
-          </li>
-        </ul>
-        </Nav>
-     
+      <Nav /> 
       </Wrapper>
     </Router>
   
