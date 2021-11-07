@@ -12,7 +12,15 @@ line-height: 24px;
   >li{
     width: 33.3%;
     text-align: center;
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+    justify-content: center;
+    align-items: center;
+    >.icon{
+      width: 28px;
+      height: 28px;
+    }
 }
 }
 `
@@ -22,19 +30,19 @@ const  Nav=()=>{
   <NavWrapper>
         <ul>
           <li>
-            <svg>
+            <svg className="icon">
               <use xlinkHref="#tag" />
             </svg>
             <Link to="/tags">标签页</Link>
           </li>
           <li>
-            <svg>
+            <svg className="icon">
               <use xlinkHref="#money"/>
               </svg>
             <Link to="/money">记账页</Link>
           </li>
           <li>
-            <svg>
+            <svg className="icon">
               <use xlinkHref="#chart"/>
               </svg>
             <Link to="/statistics">统计页</Link>
