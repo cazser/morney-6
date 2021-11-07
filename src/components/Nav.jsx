@@ -14,14 +14,16 @@ line-height: 24px;
   >li{
     width: 33.3%;
     text-align: center;
+    >a{
     display: flex;
     flex-direction: column;
     padding: 4px 0;
     justify-content: center;
     align-items: center;
-    >.icon{
-      width: 28px;
-      height: 28px;
+    }
+    .icon{
+      width: 24px;
+      height: 24px;
     }
 }
 }
@@ -32,16 +34,22 @@ const  Nav=()=>{
   <NavWrapper>
         <ul>
           <li>
-            <Icon name="tag"/>
-            <Link to="/tags">标签页</Link>
+            <Link to="/tags">
+              <Icon name="tag"/>
+              <span>标签页</span>
+            </Link>
           </li>
           <li>
+            <Link to="/money"> 
             <Icon name="money" />
-            <Link to="/money">记账页</Link>
+            <span>记账页</span>
+            </Link>
           </li>
           <li>
+            <Link to="/statistics">
             <Icon name="chart" />
-            <Link to="/statistics">统计页</Link>
+            <span>统计页</span>
+            </Link>
           </li>
         </ul>
   </NavWrapper>
