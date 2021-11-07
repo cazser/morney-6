@@ -22,15 +22,21 @@ const  Nav=()=>{
   <NavWrapper>
         <ul>
           <li>
-            <img src={z} />
+            <svg>
+              <use xlinkHref="#tag" />
+            </svg>
             <Link to="/tags">标签页</Link>
           </li>
           <li>
-            <img src={y} />
+            <svg>
+              <use xlinkHref="#money"/>
+              </svg>
             <Link to="/money">记账页</Link>
           </li>
           <li>
-            <img src={x} />
+            <svg>
+              <use xlinkHref="#chart"/>
+              </svg>
             <Link to="/statistics">统计页</Link>
           </li>
         </ul>
