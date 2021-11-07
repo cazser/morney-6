@@ -3,12 +3,35 @@ import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components'
 import {
-  BrowserRouter as Router,
+ HashRouter as Router,
 Switch,
   Route,
   Link,
 Redirect }
 from 'react-router-dom'
+const Wrapper = styled.div
+`
+height: 100vh;
+display:flex;
+flex-direction: column;
+`;
+
+const Main = styled.div
+`flex-grow:1;
+overflow:auto;
+`
+const Nav = styled.nav
+`
+border: 1px solid blue;
+>ul{
+  display: flex;
+  >li{
+    width: 33.3%;
+    text-align: center;
+    padding: 16px;
+}
+}
+`
 function Tags(){
   return(
     <div>标签页</div>
@@ -35,23 +58,10 @@ function NoMatch(){
 function App() {
   return (
     <Router>
-      <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/tags">标签页</Link>
-          </li>
-          <li>
-            <Link to="/money">记账页</Link>
-          </li>
-          <li>
-            <Link to="/statistics">统计页</Link>
-          </li>
-        </ul>
-        </nav>
-        </div>
-      <Switch>
-       
+      <Wrapper>
+        <Main>
+       <Switch>
+        <Redirect exact from="/" to="/money" />
         <Route path="/tags">
           <Tags/>
         </Route>
@@ -64,8 +74,23 @@ function App() {
         <Route path="*">
           <NoMatch/>
           </Route>
-        <Redirect exact from="/" to="/money" />
       </Switch>
+      </Main>
+      <Nav>
+        <ul>
+          <li>
+            <Link to="/tags">标签页</Link>
+          </li>
+          <li>
+            <Link to="/money">记账页</Link>
+          </li>
+          <li>
+            <Link to="/statistics">统计页</Link>
+          </li>
+        </ul>
+        </Nav>
+     
+      </Wrapper>
     </Router>
   
   );
