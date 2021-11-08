@@ -6,10 +6,13 @@ import TagsSection from 'components/TagsSection';
 import CategorySection from 'components/CategorySection';
 import NumberPadSection from '../components/NumberPadSection';
 
-
+const MyLayout = styled(Layout)`
+display: flex;
+flex-direction: column;
+`;
 function Money(){
   return(
-    <Layout>
+    <MyLayout>
     <TagsSection>
       <ol>
         <li>衣</li>
@@ -50,7 +53,7 @@ function Money(){
         <button >.</button>
       </div>
     </NumberPadSection>
-    </Layout>
+    </MyLayout>
   )
 }
 
