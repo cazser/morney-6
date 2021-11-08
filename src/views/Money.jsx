@@ -4,8 +4,9 @@ import Layout from '../components/Layout'
 import NotesSection from 'components/NotesSection';
 import TagsSection from 'components/TagsSection';
 import CategorySection from 'components/CategorySection';
+import NumberPadSection from 'components/NumberpadSection';
 
-const NumberPadSection = styled.section``;
+
 function Money(){
   return(
     <Layout>
@@ -31,8 +32,8 @@ function Money(){
     </ul>
     </CategorySection>
     <NumberPadSection>
-      <div>1000</div>
-      <div>
+      <div className="output">1000</div>
+      <div className="pad clearfix">
         <button>1</button>
         <button>2</button>
         <button>3</button>
@@ -44,9 +45,9 @@ function Money(){
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button>ok</button>
-        <button>0</button>
-        <button>.</button>
+        <button className="ok">ok</button>
+        <button className="zero">0</button>
+        <button >.</button>
       </div>
     </NumberPadSection>
     </Layout>
