@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import NotesSection from 'components/NotesSection';
 import TagsSection from 'components/TagsSection';
 import CategorySection from 'components/CategorySection';
-import NumberPadSection from 'components/NumberpadSection';
+import NumberPadSection from '../components/NumberPadSection';
 
 
 function Money(){
