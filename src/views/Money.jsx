@@ -3,7 +3,18 @@ import Layout from '../components/Layout'
 function Money(){
   return(
     <Layout>
-    <div>记账页</div>
+    <section>
+      tags
+    </section>
+    <section>
+      notes
+    </section>
+    <section>
+      category
+    </section>
+    <section>
+      numberPad
+    </section>
     </Layout>
   )
 }
