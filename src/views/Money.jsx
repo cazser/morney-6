@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import Layout from '../components/Layout'
-import NotesSection from 'components/NotesSection';
-import TagsSection from 'components/TagsSection';
-import CategorySection from 'components/CategorySection';
-import NumberPadSection from '../components/NumberPadSection';
+import NotesSection from 'components/money/NotesSection';
+import TagsSection from 'components/money/TagsSection';
+import CategorySection from 'components/money/CategorySection';
+import NumberPadSection from '../components/money/NumberPadSection';
 
 const MyLayout = styled(Layout)`
 display: flex;
@@ -14,13 +14,7 @@ function Money(){
   return(
     <MyLayout>
     <TagsSection>
-      <ol>
-        <li>衣</li>
-        <li>食</li>
-        <li>住</li>
-        <li>行</li>
-      </ol>
-      <button>新增标签</button>
+     
     </TagsSection>
     <NotesSection>
       <label>

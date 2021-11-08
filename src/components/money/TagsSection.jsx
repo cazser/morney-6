@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TagsSection = styled.section`
+const _TagSection = styled.section`
 background: #FFFFFF;padding:12px 16px;
 flex-grow:1;display: flex; flex-direction: column;
 justify-content: flex-end; align-items: flex-start;
@@ -20,5 +20,17 @@ margin: 0 -12px;
   margin-top:8px;
 }
 `;
-
+const TagsSection = (props)=>{
+  return (
+    <_TagSection>
+       <ol>
+        <li>衣</li>
+        <li>食</li>
+        <li>住</li>
+        <li>行</li>
+      </ol>
+      <button>新增标签</button>
+    </_TagSection>
+  )
+}
 export default TagsSection;
