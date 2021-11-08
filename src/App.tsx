@@ -14,9 +14,14 @@ import Statistics from 'views/Statistics';
 import Money from 'views/Money';
 import Tags from 'views/Tags';
 import NoMatch from 'views/NoMatch';
+
+const AppWrapper = styled.div`
+color: #333;
+`;
 function App() {
   return (
-    <Router>
+  <AppWrapper>
+  <Router>
        <Switch>
         <Redirect exact from="/" to="/money" />
         <Route path="/tags">
@@ -34,7 +39,7 @@ function App() {
       </Switch>
       
     </Router>
-  
+</AppWrapper>  
   );
 }
 
