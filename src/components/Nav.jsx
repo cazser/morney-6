@@ -22,6 +22,7 @@ line-height: 24px;
     align-items: center;
     &.selected{
       color:red;
+      fill: red;
     }
     }
     .icon{
