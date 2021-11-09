@@ -59,7 +59,17 @@ flex-direction: column;
 
 
 const NumberPadSection = ()=>{
-  const [output, setOutput] = useState('0')
+  const [output, _setOutput] = useState('0')
+  const setOuput=(output)=>{
+    if(output.length>16){
+      output = output.slice(0, 16);
+
+    }else if(output.length===0){
+      output='0'
+    }
+
+    _setOutput(output);
+  }
   const onClickButtonWrapper=(e)=>{
     const text = e.target.textContent;
     if(!text){return;}
@@ -81,13 +91,20 @@ const NumberPadSection = ()=>{
       }
       break;
       case ".":
-        console.log("点")
+        if(output.indexOf('.')>=0){
+          return;
+        }
+        setOutput(output + '.')
         break;
       case '删除':
-        console.log("删除")
+        if(output.length===1){
+          setOutput('0')
+        }else{
+          setOutput(output.slice(0, -1))
+        }
         break;
       case '清空':
-        console.log('清空')
+        setOutput('0')
         break;
       case 'OK':
         console.log("OK")
