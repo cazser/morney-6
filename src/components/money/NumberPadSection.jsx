@@ -60,7 +60,7 @@ flex-direction: column;
 
 const NumberPadSection = ()=>{
   const [output, _setOutput] = useState('0')
-  const setOuput=(output)=>{
+  const setOutput=(output)=>{
     if(output.length>16){
       output = output.slice(0, 16);
 

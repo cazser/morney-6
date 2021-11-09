@@ -26,7 +26,7 @@ margin: 0 -12px;
 `;
 const TagsSection = (props)=>{
   const [tags, setTags]= useState(["衣","食","住","行"])
-  const [selectedTags, setSelectedTags] = useState([])
+  const selectedTags = props.value
   const onAddTag = ()=>{
     const tagName = window.prompt("新标签的名称为？")
     if(tagName!==null){
@@ -37,9 +37,9 @@ const TagsSection = (props)=>{
   const onToggleTag = (tag)=>{
     const index = selectedTags.indexOf(tag);
     if(index>=0){
-      setSelectedTags( selectedTags.filter((t)=> t!==tag))
+      props.onChange( selectedTags.filter((t)=> t!==tag))
     }else{
-      setSelectedTags([...selectedTags, tag])
+      props.onChange([...selectedTags, tag])
     }
   }
 

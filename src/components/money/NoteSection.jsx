@@ -14,12 +14,12 @@ padding: 0px 16px;font-size: 14px;
 }
 `;
 
-const NoteSection = ()=>{
-  const [note, setNote] = useState('')
+const NoteSection = (props)=>{
+  const note=props.value;
   const refInput = useRef(null);
   const onBlur = ()=>{
     if(refInput.current!==null){
-      setNote(refInput.current.value);
+      props.onChange(refInput.current.value);
     }
   }
   return(
