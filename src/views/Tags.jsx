@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import useTags from 'useTags'
 import Layout from '../components/Layout'
@@ -8,11 +9,14 @@ background: white;
 >li{
   border-bottom: 1px solid #d5d5d9;
   line-height: 20px;
-  padding: 12px 16px 12px 0;
   margin-left: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ 
+  >a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px 12px 0;
+   }
   &.right{
     font-size:20px;
   }
@@ -43,8 +47,11 @@ function Tags(){
       {tags.map((tag)=>{
         return(
           <li key={tag}>
+            <Link to={'/tags/'+tag}>
           <span>{tag}</span>
-          <span className="right">&gt;</span></li>
+          <span className="right">&gt;</span>
+          </Link>
+          </li>
         )
       })}
     </TagList>
