@@ -1,15 +1,19 @@
- import { useState } from "react"
-
+ import createId from "lib/createId"
+import { useState } from "react"
+const defaultTags = [	
+	{id:createId(), name:"衣"},
+	{id:createId(), name:"食"},
+	{id:createId(), name:"住"},
+	{id:createId(), name:"行"}
+	]
  const useTags=()=>{
- const [tags, setTags]= useState([
-	{id:1, name:"衣"},
-	{id:2, name:"食"},
-	{id:3, name:"住"},
-	{id:4, name:"行"}
-	])
-	return {
+ const [tags, setTags]= useState(defaultTags)
+const findTag =(id)=> tags.filter((tag)=>{return tag.id === parseInt(id)})[0]
+
+ return {
 		tags: tags,
-		setTags: setTags
+		setTags: setTags,
+		findTag: findTag
 	}
  }
 
