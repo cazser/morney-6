@@ -20,7 +20,9 @@ function Money(){
   
   return(
     <MyLayout>
-      {selected.note}
+      {selected.category}
+      <hr/>
+      {selected.amount}
     <TagsSection value={selected.tags}
                   onChange={(tags)=>{setSelected({
                     ...selected, tags: tags})}}/>
@@ -29,8 +31,19 @@ function Money(){
                     setSelected({...selected, note:note})
                   }}
                   />
-    <CategorySection />
-    <NumberPadSection />
+    <CategorySection value={selected.category}
+                      onChange={(category)=>{setSelected({
+                        ...selected, category: category})}} />
+    <NumberPadSection value={selected.amount}
+                      onChange={
+                          (amount)=>{
+                            setSelected({
+                              ...selected,
+                              amount:amount
+                            })
+                          }
+                      }
+                      onOk={()=>{}}/>
     </MyLayout>
   )
 }

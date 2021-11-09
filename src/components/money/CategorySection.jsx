@@ -18,9 +18,9 @@ font-size: 24px;
 }
 `;
 
-const CategorySection=()=>{
+const CategorySection=(props)=>{
   const [categoryList] = useState(['-','+'])
-  const [category, setCategory] = useState('-');
+  const category= props.value;
   const categoryMap = {'-':"支出", "+":"收入"}
   return (
     <Wrapper>
@@ -28,7 +28,7 @@ const CategorySection=()=>{
       {categoryList.map((c)=>{
         return (
           <li className={category===c ? "selected": ''}
-             key={c} onClick={()=>{setCategory(c)}}
+             key={c} onClick={()=>{props.onChange(c)}}
           >{categoryMap[c]}</li> 
         )
       })}

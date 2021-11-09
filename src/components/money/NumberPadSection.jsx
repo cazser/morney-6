@@ -58,8 +58,8 @@ flex-direction: column;
 `;
 
 
-const NumberPadSection = ()=>{
-  const [output, _setOutput] = useState('0')
+const NumberPadSection = (props)=>{
+  const output = props.value.toString()
   const setOutput=(output)=>{
     if(output.length>16){
       output = output.slice(0, 16);
@@ -67,8 +67,8 @@ const NumberPadSection = ()=>{
     }else if(output.length===0){
       output='0'
     }
-
-    _setOutput(output);
+    let value = parseFloat(output)
+    props.onChange(output);
   }
   const onClickButtonWrapper=(e)=>{
     const text = e.target.textContent;
@@ -107,7 +107,9 @@ const NumberPadSection = ()=>{
         setOutput('0')
         break;
       case 'OK':
-        console.log("OK")
+        if(props.onOk){
+          props.onOk();
+        }
         break;
     }
   }
