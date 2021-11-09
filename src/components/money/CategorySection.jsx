@@ -28,7 +28,7 @@ const CategorySection=()=>{
       {categoryList.map((c)=>{
         return (
           <li className={category===c ? "selected": ''}
-             onClick={()=>{setCategory(c)}}
+             key={c} onClick={()=>{setCategory(c)}}
           >{categoryMap[c]}</li> 
         )
       })}
