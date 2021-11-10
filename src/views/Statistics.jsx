@@ -5,9 +5,11 @@ import WhiteWrapper from 'components/WhiteWrapper';
 import Layout from '../components/Layout'
 import useRecords from 'useRecords';
 import day from 'dayjs'
+import useTags from 'useTags';
 function Statistics(){
   const [category, setCategory]= useState('-')
   const {records} = useRecords();
+  const {getName} = useTags();
   return(
   <Layout>
     
@@ -17,7 +19,15 @@ function Statistics(){
     <div>
       
       {records.map((r)=>{
-        return <div>{r.amount}</div>
+        return (<div>
+          {r.tagIds.map(tagId=><span>{getName(tagId)}</span>)}
+          <hr/>
+        {r.amount}
+        <hr/>
+        {day(r.createAt).format('YYYY年MM月DD日')}
+        </div>
+        
+        )
       })}
       
     </div>

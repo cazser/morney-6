@@ -48,6 +48,10 @@ const updateTag = (id, obj)=>{
 const deleteTag =(id)=>{
 	setTags(tags.filter((tag)=>{return tag.id!==id}))
 }
+const getName= (id)=>{
+const tag = tags.filter((t)=>{return t.id===id})[0]
+return tag? tag.name: '';
+}
  return {
 		tags: tags,
 		setTags: setTags,
@@ -55,7 +59,8 @@ const deleteTag =(id)=>{
 		updateTag: updateTag,
 		findTagIndex: findTagIndex,
 		deleteTag: deleteTag,
-		addTag: addTag
+		addTag: addTag,
+		getName: getName
 	}
  }
 
