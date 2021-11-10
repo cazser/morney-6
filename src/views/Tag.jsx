@@ -19,7 +19,7 @@ margin-bottom: 8px;
 
 
 const Tag = ()=>{
-	const {findTag}= useTags();
+	const {findTag, updateTag}= useTags();
 	const {id} = useParams()
 	const tag = findTag(parseInt(id))
 	return(
@@ -32,7 +32,9 @@ const Tag = ()=>{
 		 <LabelWrapper>
 		<label>
         	<span>标签名</span>
-        	  <input type='text' placeholder={tag.name}/>
+        	  <input type='text' value={tag.name}
+		  		     onChange={(e)=>{updateTag( tag.id, {name: e.target.value})}}
+					/>
       		</label>
 		</LabelWrapper>
 		
