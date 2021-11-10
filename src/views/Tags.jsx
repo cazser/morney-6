@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import useTags from 'useTags'
 import Layout from 'components/Layout'
 import Button from 'components/Button';
+import Center from 'components/Center';
+import Space from 'components/Space';
 const TagList = styled.ol`
 font-size: 16px;
 background: white;
@@ -25,16 +27,8 @@ background: white;
 `;
 
 
-const Center= styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
 
-const Space=styled.div`
-height: 16px;
-`;
+
 function Tags(){
   const {tags, setTags} = useTags();
   return(
