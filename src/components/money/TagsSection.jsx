@@ -27,14 +27,9 @@ margin: 0 -12px;
 }
 `;
 const TagsSection = (props)=>{
-  const {tags, setTags}= useTags()
+  const {tags, setTags, addTag}= useTags()
   const selectedTagIds = props.value
-  const onAddTag = ()=>{
-    const tagName = window.prompt("新标签的名称为？")
-    if(tagName!==null){
-      setTags([...tags, {id:createId(), name:tagName}])
-    }
-  }
+ 
 
   const onToggleTag = (tagId)=>{
     const index = selectedTagIds.indexOf(tagId);
@@ -55,7 +50,7 @@ const TagsSection = (props)=>{
         >{tag.name}</li>
         )}
       </ol>
-      <button onClick={onAddTag}>新增标签</button>
+      <button onClick={addTag}>新增标签</button>
     </Wrapper>
   )
 }
