@@ -6,6 +6,7 @@ import TagsSection from 'components/money/TagsSection';
 import CategorySection from 'components/money/CategorySection';
 import NumberPadSection from '../components/money/NumberPadSection';
 import useRecords from 'useRecords';
+import CategoryWrapper from 'components/money/CategoryWrapper';
 
 const MyLayout = styled(Layout)`
 display: flex;
@@ -39,9 +40,11 @@ function Money(){
     <NoteSection  value={selected.note}
                   onChange={(note)=>{onChange({note})}}
     />
+    <CategoryWrapper>
     <CategorySection value={selected.category}
                       onChange={(category)=>{onChange({category})}} 
     />
+    </CategoryWrapper>
     <NumberPadSection value={selected.amount}
                       onChange={(amount)=>{onChange({amount})}}
                       onOk={submit}/>
