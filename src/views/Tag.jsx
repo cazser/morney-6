@@ -19,9 +19,10 @@ margin-bottom: 8px;
 
 
 const Tag = ()=>{
-	const {findTag, updateTag}= useTags();
+	const {findTag, updateTag, deleteTag}= useTags();
 	const {id} = useParams()
 	const tag = findTag(parseInt(id))
+	
 	return(
 		<Layout>
 		<Topbar>
@@ -29,6 +30,7 @@ const Tag = ()=>{
 		 <span>编辑标签</span>
 		 <span></span>
 		</Topbar>
+		{tag? 
 		 <LabelWrapper>
 		<label>
         	<span>标签名</span>
@@ -37,12 +39,14 @@ const Tag = ()=>{
 					/>
       		</label>
 		</LabelWrapper>
-		
+		:
+		<Center>tag不存在</Center>
+		}
 		<Center>
 		<Space />
 		<Space />
 		<Space />
-		<Button>删除标签</Button>
+		<Button onClick={()=>{deleteTag(tag.id)}}>删除标签</Button>
 		</Center>
 		
 		
