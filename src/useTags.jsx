@@ -21,17 +21,17 @@ const findTagIndex = (id)=>{
 
 }
 const updateTag = (id, obj)=>{
-	const index = findTagIndex(id);
-	const tagsClone = JSON.parse(JSON.stringify(tags))
-	 tagsClone.splice(index, 1, {id:id, name:obj.name})
-	setTags(tagsClone);
+	setTags(tags.map((tag)=>{
+		if(tag.id===id){
+			return {id:id, name: obj.name}
+		}else{
+			return tag
+		}
+	}))
 }
 
 const deleteTag =(id)=>{
-	const index = findTagIndex(id);
-	const tagsClone = JSON.parse(JSON.stringify(tags))
-	 tagsClone.splice(index, 1)
-	setTags(tagsClone);
+	setTags(tags.filter((tag)=>{return tag.id!==id}))
 }
  return {
 		tags: tags,

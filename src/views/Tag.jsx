@@ -3,7 +3,7 @@ import Center from "components/Center";
 import LabelWrapper from "components/LabelWrapper";
 import Layout from "components/Layout";
 import Space from "components/Space";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import styled from "styled-components";
 import useTags from "useTags"
 const Topbar = styled.header`
@@ -22,11 +22,14 @@ const Tag = ()=>{
 	const {findTag, updateTag, deleteTag}= useTags();
 	const {id} = useParams()
 	const tag = findTag(parseInt(id))
-	
+	const history = useHistory()
+	const onClickBack = ()=>{
+		history.goBack();
+	}
 	return(
 		<Layout>
 		<Topbar>
-		 <span className="left">&lt;</span>
+		 <span className="left" onClick={onClickBack}>&lt;</span>
 		 <span>编辑标签</span>
 		 <span></span>
 		</Topbar>
