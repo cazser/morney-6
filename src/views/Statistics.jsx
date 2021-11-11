@@ -20,6 +20,11 @@ justify-content: space-between;
 }
 `;
 
+const Header = styled.h4`
+font-size: 18px;
+line-height: 20px;
+padding: 10px 16px;
+`;
 function Statistics(){
   const [category, setCategory]= useState('-')
   const {records} = useRecords();
@@ -28,7 +33,7 @@ function Statistics(){
   const displayRecords=
      records.filter((r)=>{return r.category === category})
   displayRecords.map((r)=>{
-    const key = day(r.createAt).format('YYYY-MM-DD')
+    const key = day(r.createAt).format('YYYY年MM月DD日')
     
     if(!(key in hash)){
       hash[key] = []
@@ -41,7 +46,6 @@ function Statistics(){
     if(a[0]>b[0]) return -1;
     if(a[0]<b[0]) return 1;
   });
-  console.log(array);
   return(
   <Layout>
     
@@ -53,13 +57,13 @@ function Statistics(){
       {array.map(([date, records])=>{
        return (
         <div>
-          <h3>{date}</h3>
+          <Header>{date}</Header>
           <div>
           {records.map((r)=>{
         return (
         <Item>
           <div className="tags"> 
-          {r.tagIds.map(tagId=><span key={tagId}>{getName(tagId)}</span>)}
+          {r.tagIds.map(tagId=><span key={tagId}>{getName(tagId)} </span>)}
           </div>
          {r.note && <div className="note">{r.note}</div>}
           
