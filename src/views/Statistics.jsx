@@ -6,6 +6,20 @@ import Layout from '../components/Layout'
 import useRecords from 'useRecords';
 import day from 'dayjs'
 import useTags from 'useTags';
+const Item = styled.div`
+display: flex;
+background: white;
+font-size: 18px;
+line-height: 20px;
+padding: 10px 16px;
+justify-content: space-between;
+>.note{
+  margin-right: auto;
+  margin-left: 16px;
+  color: #999;
+}
+`;
+
 function Statistics(){
   const [category, setCategory]= useState('-')
   const {records} = useRecords();
@@ -19,13 +33,19 @@ function Statistics(){
     <div>
       
       {records.map((r)=>{
-        return (<div>
+        return (
+        <Item>
+          <div className="tags"> 
           {r.tagIds.map(tagId=><span>{getName(tagId)}</span>)}
-          <hr/>
-        {r.amount}
-        <hr/>
-        {day(r.createAt).format('YYYY年MM月DD日')}
-        </div>
+          </div>
+         {r.note && <div className="note">{r.note}</div>}
+          
+          <div className="amount">
+           ￥{r.amount}
+          </div>
+        
+        {/*day(r.createAt).format('YYYY年MM月DD日')*/}
+        </Item>
         
         )
       })}
