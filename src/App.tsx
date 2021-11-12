@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components'
 
@@ -7,7 +6,6 @@ import {
  HashRouter as Router,
 Switch,
   Route,
-  Link,
 Redirect }
 from 'react-router-dom'
 import Statistics from 'views/Statistics';

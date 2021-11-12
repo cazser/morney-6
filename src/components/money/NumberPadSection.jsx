@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import styled from "styled-components";
 
 const Wrapper = styled.section`
@@ -53,6 +53,9 @@ flex-direction: column;
     &:nth-child(14){
       background: #a9a9a9;
     }
+    &:active{
+      background: white;
+    }
   }
 }
 `;
@@ -67,7 +70,7 @@ const NumberPadSection = (props)=>{
     }else if(output.length===0){
       output='0'
     }
-    let value = parseFloat(output)
+  
     props.onChange(output);
   }
   const onClickButtonWrapper=(e)=>{

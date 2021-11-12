@@ -1,5 +1,3 @@
-import createId from "lib/createId";
-import { useState } from "react";
 import styled from "styled-components";
 import useTags from "useTags";
 
@@ -27,7 +25,7 @@ margin: 0 -12px;
 }
 `;
 const TagsSection = (props)=>{
-  const {tags, setTags, addTag}= useTags()
+  const {tags,  addTag}= useTags()
   const selectedTagIds = props.value
  
 

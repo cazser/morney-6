@@ -32,7 +32,7 @@ function Statistics(){
   const hash ={}
   const displayRecords=
      records.filter((r)=>{return r.category === category})
-  displayRecords.map((r)=>{
+  displayRecords.forEach((r)=>{
     const key = day(r.createAt).format('YYYY年MM月DD日')
     
     if(!(key in hash)){
@@ -45,6 +45,7 @@ function Statistics(){
     if(a[0]===b[0]) return 0;
     if(a[0]>b[0]) return -1;
     if(a[0]<b[0]) return 1;
+    return 0;
   });
   return(
   <Layout>
